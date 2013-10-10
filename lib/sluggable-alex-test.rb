@@ -14,7 +14,7 @@ module Sluggable
     end
 
     def generate_slug
-      str = to_slug(self.sluggable)
+      str_try = to_slug(self.sluggable)
       count = 2
       obj = Post.where(slug: str).first
       while obj && obj != self
@@ -26,6 +26,7 @@ module Sluggable
     end
  
     def to_slug(name)
+      #still has some bugs
       #strip the string
       ret = name.strip
  
