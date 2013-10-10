@@ -14,7 +14,8 @@ module Sluggable
     end
 
     def generate_slug
-      str_try = to_slug(self.sluggable)
+      str = to_slug(self.sluggable)
+      str_try = str
       count = 2
       obj = Post.where(slug: str).first
       while obj && obj != self
